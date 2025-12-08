@@ -25,8 +25,6 @@ def part1(inp : str) -> int:
                         grid[row][col+1] = "|"
     return splitcount
 
-seen2 = set()
-
 def part2(inp : str) -> int:
     grid = []
     active_cols = []
