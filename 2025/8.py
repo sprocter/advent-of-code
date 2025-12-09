@@ -1,6 +1,5 @@
 from scipy.spatial import KDTree
 from scipy.optimize import bisect
-from math import sqrt
 
 my_inp = """
 """
@@ -69,21 +68,6 @@ def part1(num_pairs: int) -> int:
     circuits = _merge_junction_boxes(pairs)
     answer = _mult_three_largest_circuits(circuits)
     return answer
-
-
-def _dist_to_coords(y: list[list[int]], pairs) -> tuple[list[int], list[int]]:
-    dist_to_coords = {}
-    for jBox1, jBox2 in pairs:
-        coord1 = y[jBox1]
-        coord2 = y[jBox2]
-        dist = sqrt(
-            (coord1[0] - coord2[0]) ** 2
-            + (coord1[1] - coord2[1]) ** 2
-            + (coord1[2] - coord2[2]) ** 2
-        )
-        dist_to_coords[dist] = (coord1, coord2)
-    max_dist = max(dist_to_coords.keys())
-    return dist_to_coords[max_dist]
 
 
 def _collect_vertices(pairs) -> set[int]:
